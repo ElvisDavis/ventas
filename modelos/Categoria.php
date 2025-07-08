@@ -1,7 +1,7 @@
 <?php
 //Incluimos el archivo a la conexión a la base de datos
 //../ sale de unnivel del lugar de donde estamos
-require "../config/Conexion.php";
+require "../../config/Conexion.php";
 
 //Creo la case Categoria
 class Categoria{
