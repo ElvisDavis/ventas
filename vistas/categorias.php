@@ -1,5 +1,9 @@
+<?php
+require 'header.php';
 
-        <!--Contenido principal-->
+?>
+
+<!--Contenido principal-->
         <div class="content-wrapper">
             <!--Main content-->
             <section class="content">
@@ -8,7 +12,7 @@
                         <div class="box">
                             <div class="box-header with-border">
                                 <h1 class="boxtittle">Categoría <button class="btn btn-success" id="btnagregar"
-                                        onclick="mostrarform()"><i class="fa fa-plus-circle"></i>Agregar</button></h1>
+                                        onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>Agregar</button></h1>
                                 <div class="box-tools pull-right">
 
                                 </div>
@@ -68,4 +72,9 @@
             </section>
         </div>
     </div>
-   
+
+    <?php
+    require 'footer.php';
+    ?>
+
+    <script src="js/categoria.js" type="text/javascript"></script>
