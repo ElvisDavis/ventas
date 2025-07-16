@@ -7,11 +7,14 @@
     </footer>
 
     <!--Añadimos la librería de Jquery-->
-    <script src="../public/js/jquery-3.1.1.min.js"></script>
+    <script src="../public/js/jquery-3.7.1.js"></script>
     <!--Bootstrap -->
     <script src="../public/js/bootstrap.min.js"></script>
     <!--AdminLTE-->
     <script src="../public/js/app.js"></script>
+
+    <!--añadimos bootbox a nuestro proyecto-->
+    <script src="../public/js/bootbox.min.js"></script>
 </body>
 
 </html>

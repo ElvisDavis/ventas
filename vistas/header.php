@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="../public/css/_all-skins.min.css">
     <link rel="stylesheet" href="../public/img/apple-touch-icon.png">
     <link rel="shortcut icon" href="../public/img/favicon.ico">
+    <!--Datatables-->
+    
 </head>
 
 <body class="hold-transtion skin-green-light sidebar-mini">
@@ -104,7 +106,7 @@
                             <li><a href="articulo.php">
                                     <i class="fa fa-circle-o"></i>Artículos
                                 </a></li>
-                            <li><a href="categoria.php">
+                            <li><a href="categorias.php">
                                     <i class="fa fa-circle-o"></i>Categorías
                                 </a></li>
 

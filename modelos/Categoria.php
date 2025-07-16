@@ -1,7 +1,7 @@
 <?php
 //Incluimos el archivo a la conexión a la base de datos
 //../ sale de unnivel del lugar de donde estamos
-require "../../config/Conexion.php";
+require "../config/Conexion.php";
 
 //Creo la case Categoria
 class Categoria{
@@ -15,8 +15,7 @@ class Categoria{
     // categoria a la base de datos
     public function insertar($nombre, $descripcion){
         //Definimos una variable para almacenar la consulta
-        $sql = "INSERT INTO categoria (nombre, descripcion, condicion)
-        VALUES ($nombre, $descripcion, '1')";
+        $sql = "INSERT INTO categoria(nombre, descripcion, condicion)VALUES ('$nombre', '$descripcion', 1)";
         //retornamos el resultado de la consulta
         return ejecutarConsulta($sql);
     }

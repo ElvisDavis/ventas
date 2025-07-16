@@ -38,12 +38,34 @@ switch ($_GET["op"]){
             //Convertir el rsultado en json
             echo json_encode($rspta);
             break;
+         // Creamos el caso listar   
+        case 'listar':
+            $rspta =$categoria->listar();
+            //Vamos a declara un array para guardar 
+            // /toda la información en el arreglo
+            $data=Array();
+            while($reg=$rspta->fecth_object()){
+                $data[]=array(
+                    "0"=>$reg->idcategoria,
+                    "1"=>$reg->nombre,
+                    "2"=>$reg->descripcion,
+                    "3"=>$reg->($reg->condicion)?'<span class="label bg-green">Activado</span>':
+                    '<span class="label bg-red">Desactivado</span>',
+                    "4"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idcategoria.')"><i class="fa fa-pencil"></i></button>'.
+                     ' <button class="btn btn-danger" onclick="desactivar('.$reg->idcategoria.')"><i class="fa fa-close"></i></button>':
+                     ' <button class="btn btn-warning" onclick="mostrar('.$reg->idcategoria.')"><i class="fa fa-pencil"></i></button>'.
+                     ' <button class="btn btn-primary" onclick="activar('.$reg->idcategoria.')"><i class="fa fa-check"></i></button>'
 
+                );
+            }
+            //VAmos a generar información sobre datatable
+            $results=array(
+                "sEcho"=>1, //Información para el datatable
+                "iTotalRecords"=>count($data), //enviamos el total de registros al datable
+                "iTotalDisplayRecords"=>($data), //enviamos el total de registros a visualizar
+                "aaData"=>$data);
+                echo json_encode($results);
+                break;
 
-
-
-
-
-
-
+}
 ?>

@@ -22,7 +22,7 @@ require 'header.php';
                             <div class="panel-body table-responsive" id="listadoregistro">
                                 <table
                                     class="table table-striped table-bordered table-responsive table-condensed table-hover"
-                                    id="listado">
+                                    id="tbllistado">
                                     <thead>
                                         <th>Id Categoría</th>
                                         <th>Nombre</th>
