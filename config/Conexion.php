@@ -12,9 +12,9 @@ if(mysqli_connect_errno())
 {
     printf("Fallo  la conexion a la base de datos: %s\n", mysql_connect_error());
     exit();
-}else{
+}/*else{
     printf("Conexión a la base de datos exitosa: %s\n", DB_NAME);
-}
+}*/
 
 //Definir un conjunto de funciones que nos ayuden a la consulta de la base de datos
 if(!function_exists('ejecutarConsulta')){

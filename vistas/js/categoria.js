@@ -45,7 +45,7 @@ function listar() {
     tabla = $('#tbllistado').dataTable(
         {
             "aProcessing": true,// Activamos el procesamiento del datatable
-            "aServerSide":true, //Paginación y filtado realizados por el servidor
+            "aServerSide": true, //Paginación y filtado realizados por el servidor
             dom: 'Bfrtip', //Definimos los elementos del control de la tabbla
             buttons: [
                 'copyHtml5',
@@ -55,15 +55,15 @@ function listar() {
             ],
             "ajax":
             {
-                url:"../controladores/categoria.php?op=listar",
+                url: "../controladores/categoria.php?op=listar",
                 type: "get",
-                dataType:"json",
-                error: function(e){
+                dataType: "json",
+                error: function (e) {
                     console.log(e.responseText);
                 }
             },
-            "bDestroy":true,
-            "iDisplayLength":5, //Paginación
+            "bDestroy": true,
+            "iDisplayLength": 5, //Paginación
             "order": [[0, "desc"]] //Ordenar (columna, orden)
 
         }).DataTable();
@@ -91,6 +91,46 @@ function guardaryeditar(e) {
         }
     });
     limpiar();
+}
+
+//creamos una fución para mostrar los datos y editar
+function mostrar(idcategoria) {
+    $.post("../controladores/categoria.php?op=mostrar", { idcategoria: idcategoria }, function (data, status) {
+        data = JSON.parse(data);
+        mostrarform(true);
+
+        $("#nombre").val(data.nombre);
+        $("#descripcion").val(data.descripcion);
+        $("#idcategoria").val(data.idcategoria);
+
+    })
+}
+
+//Creamos una función para descativar la categoria
+function desactivar(idcategoria){
+    bootbox.confirm("¿Está seguro de desactivar la categoría?", function(result){
+        if(result)
+        {
+            $.post("../controladores/categoria.php?op=desactivar", {idcategoria : idcategoria}, function(e){
+                bootbox.alert(e);
+                tabla.ajax.reload();
+            });
+        }
+    })
+}
+
+//creamos una función para activar la categoría
+
+function activar(idcategoria){
+    bootbox.confirm("¿Está seguro de activar la categoría ?", function(result){
+        if(result)
+        {
+            $.post("../controladores/categoria.php?op=activar", {idcategoria : idcategoria}, function(e){
+                bootbox.alert(e);
+                tabla.ajax.reload();
+            })
+        }
+    })
 }
 
 //ejecutamos la función init

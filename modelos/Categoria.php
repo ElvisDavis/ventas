@@ -29,15 +29,13 @@ class Categoria{
     //Definimos una función para activar una categoria
     public function activar($idcategoria){
         //Definimos una cariable para almacenar la consulta
-        $sql="UPDATE categoria SET condicion = 1 
-        WHERE idcategoria = '$idcategoria'";
-        return ejercutarConsulta($sql);
+        $sql="UPDATE categoria SET condicion = 1 WHERE idcategoria = '$idcategoria'";
+        return ejecutarConsulta($sql);
     }
     //definimos una función para desactivar la categoria
     public function desactivar($idcategoria){
         //Definimos una variable para almacenar la consulta
-        $sql="UPDATE categoria SET condicion =0
-        WHERE idcategoria = '$idcategoria'";
+        $sql="UPDATE categoria SET condicion =0 WHERE idcategoria = '$idcategoria'";
         //retornamos la consulta
         return ejecutarConsulta($sql);
     }
